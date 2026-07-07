@@ -1,0 +1,20 @@
+<header class="site-header">
+  <nav class="nav-container" aria-label="Main navigation">
+    <a routerLink="/" class="brand">Lab Exercise 5 Blog</a>
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+        >Posts</a
+      >
+      @if (!authService.isLoggedIn) {
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+        <a routerLink="/register" routerLinkActive="active">Register</a>
+      } @else {
+        <button type="button" (click)="logout()">Logout</button>
+      }
+    </div>
+  </nav>
+</header>
+
+<main class="page-container">
+  <router-outlet></router-outlet>
+</main>

@@ -1,0 +1,22 @@
+<section class="page-section">
+  <a routerLink="/" class="back-link">Back to posts</a>
+
+  @if (isLoading()) {
+    <p class="status-message">Loading post...</p>
+  }
+
+  @if (errorMessage()) {
+    <p class="error-message">{{ errorMessage() }}</p>
+  }
+
+  @if (post(); as selectedPost) {
+    <article class="detail">
+      <h1>{{ selectedPost.title }}</h1>
+      <p class="post-meta">
+        By {{ selectedPost.firstName }} {{ selectedPost.lastName }} &middot;
+        {{ selectedPost.dateCreated | date: 'medium' }}
+      </p>
+      <p class="post-body">{{ selectedPost.body }}</p>
+    </article>
+  }
+</section>

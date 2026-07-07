@@ -1,0 +1,36 @@
+<section class="page-section">
+  <div class="section-header">
+    <div>
+      <p class="eyebrow">Blog posts</p>
+      <h1>Latest Posts</h1>
+    </div>
+    <button type="button" class="secondary-button" (click)="initData()" [disabled]="isLoading()">
+      Refresh
+    </button>
+  </div>
+
+  @if (isLoading()) {
+    <p class="status-message">Loading posts...</p>
+  }
+
+  @if (errorMessage()) {
+    <p class="error-message">{{ errorMessage() }}</p>
+  }
+
+  @if (!isLoading() && !errorMessage() && posts().length === 0) {
+    <p class="status-message">No posts have been created yet.</p>
+  }
+
+  <div class="post-list">
+    @for (post of posts(); track post.id) {
+      <article class="post-card">
+        <a [routerLink]="['/posts', post.id]" class="post-title">{{ post.title }}</a>
+        <p class="post-meta">
+          By {{ post.firstName }} {{ post.lastName }} &middot;
+          {{ post.dateCreated | date: 'mediumDate' }}
+        </p>
+        <p class="post-preview">{{ post.body }}</p>
+      </article>
+    }
+  </div>
+</section>

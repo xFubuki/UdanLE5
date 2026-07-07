@@ -1,0 +1,82 @@
+<section class="auth-section">
+  <div class="auth-panel">
+    <h1>Register</h1>
+    <p class="helper-text">Create a blog account.</p>
+
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+      <label for="username">User name</label>
+      <input
+        id="username"
+        name="username"
+        type="text"
+        required
+        maxlength="16"
+        autocomplete="username"
+        [(ngModel)]="form.username"
+        #username="ngModel"
+      />
+      @if (username.invalid && username.touched) {
+        <p class="validation-message">User name is required.</p>
+      }
+
+      <label for="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        required
+        maxlength="16"
+        autocomplete="new-password"
+        [(ngModel)]="form.password"
+        #password="ngModel"
+      />
+      @if (password.invalid && password.touched) {
+        <p class="validation-message">Password is required.</p>
+      }
+
+      <label for="firstName">First name</label>
+      <input
+        id="firstName"
+        name="firstName"
+        type="text"
+        required
+        maxlength="50"
+        autocomplete="given-name"
+        [(ngModel)]="form.firstName"
+        #firstName="ngModel"
+      />
+      @if (firstName.invalid && firstName.touched) {
+        <p class="validation-message">First name is required.</p>
+      }
+
+      <label for="lastName">Last name</label>
+      <input
+        id="lastName"
+        name="lastName"
+        type="text"
+        required
+        maxlength="50"
+        autocomplete="family-name"
+        [(ngModel)]="form.lastName"
+        #lastName="ngModel"
+      />
+      @if (lastName.invalid && lastName.touched) {
+        <p class="validation-message">Last name is required.</p>
+      }
+
+      @if (errorMessage) {
+        <p class="error-message">{{ errorMessage }}</p>
+      }
+
+      @if (successMessage) {
+        <p class="success-message">{{ successMessage }}</p>
+      }
+
+      <button type="submit" [disabled]="isSubmitting || registerForm.invalid">
+        {{ isSubmitting ? 'Creating account...' : 'Register' }}
+      </button>
+    </form>
+
+    <p class="auth-link">Already registered? <a routerLink="/login">Login</a></p>
+  </div>
+</section>

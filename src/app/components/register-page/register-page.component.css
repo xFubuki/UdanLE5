@@ -1,0 +1,85 @@
+.auth-section {
+  display: flex;
+  justify-content: center;
+}
+
+.auth-panel {
+  background: #ffffff;
+  border: 1px solid #dfe4ec;
+  border-radius: 8px;
+  max-width: 480px;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+h1 {
+  margin: 0 0 0.35rem;
+}
+
+.helper-text,
+.auth-link {
+  color: #667085;
+}
+
+form {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+label {
+  color: #26364d;
+  font-weight: 700;
+}
+
+input {
+  border: 1px solid #b8c1d1;
+  border-radius: 6px;
+  font: inherit;
+  padding: 0.75rem;
+}
+
+button {
+  background: #1d4f91;
+  border: 0;
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  padding: 0.8rem 1rem;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.validation-message {
+  color: #a2241f;
+  font-size: 0.9rem;
+  margin: -0.25rem 0 0.25rem;
+}
+
+.error-message,
+.success-message {
+  border-radius: 8px;
+  margin: 0.5rem 0 0;
+  padding: 0.8rem;
+}
+
+.error-message {
+  background: #fff1f0;
+  color: #a2241f;
+}
+
+.success-message {
+  background: #edf8f1;
+  color: #146c3a;
+}
+
+a {
+  color: #1d4f91;
+  font-weight: 700;
+}
